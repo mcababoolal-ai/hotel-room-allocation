@@ -1,6 +1,12 @@
-#!/usr/bin/env sh
+#!/bin/bash
+set -e
 
-# This file will be included as a Docker ENTRYPOINT in our automated testing evironment. 
+IMAGE_NAME=hotel-room-allocation
+CONTAINER_NAME=hotel-room-allocation-container
 
-echo "Build and Run you server here"
-exit 1
+echo "Building Docker image..."
+docker build -t $IMAGE_NAME .
+
+echo "Running Docker container..."
+docker run -p 8080:8080 --name $CONTAINER_NAME $IMAGE_NAME
+
