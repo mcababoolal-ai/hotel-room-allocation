@@ -18,19 +18,19 @@ public class RoomAllocationService {
     ) {
 
         List<BigDecimal> premiumGuestOffers =
-                request.guestWillingnessToPay().stream()
+                request.potentialGuests().stream()
                         .filter(amount -> amount.compareTo(PREMIUM_THRESHOLD) >= 0)
                         .sorted(Comparator.reverseOrder())
                         .toList();
 
         List<BigDecimal> economyGuestOffers =
-                request.guestWillingnessToPay().stream()
+                request.potentialGuests().stream()
                         .filter(amount -> amount.compareTo(PREMIUM_THRESHOLD) < 0)
                         .sorted(Comparator.reverseOrder())
                         .toList();
 
-        int remainingPremiumRooms = (request.availablePremiumRooms() == null) ? 0 : request.availablePremiumRooms();
-        int remainingEconomyRooms = (request.availableEconomyRooms() == null) ? 0 : request.availableEconomyRooms();
+        int remainingPremiumRooms = (request.premiumRooms() == null) ? 0 : request.premiumRooms();
+        int remainingEconomyRooms = (request.economyRooms() == null) ? 0 : request.economyRooms();
 
         List<BigDecimal> allocatedPremiumPayments = new ArrayList<>();
         List<BigDecimal> allocatedEconomyPayments = new ArrayList<>();

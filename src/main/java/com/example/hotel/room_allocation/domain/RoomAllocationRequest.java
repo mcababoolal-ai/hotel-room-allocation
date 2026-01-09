@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 public record RoomAllocationRequest(
-        Integer availablePremiumRooms,
-        Integer availableEconomyRooms,
-        List<BigDecimal> guestWillingnessToPay
+        Integer premiumRooms,
+        Integer economyRooms,
+        List<BigDecimal> potentialGuests
 ) {}
