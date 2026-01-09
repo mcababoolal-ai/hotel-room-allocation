@@ -3,8 +3,8 @@ package com.example.hotel.room_allocation.domain;
 import java.math.BigDecimal;
 
 public record RoomAllocationResult(
-        int occupiedPremiumRooms,
+        Integer occupiedPremiumRooms,
         BigDecimal totalPremiumRevenue,
-        int occupiedEconomyRooms,
+        Integer occupiedEconomyRooms,
         BigDecimal totalEconomyRevenue
 ) {}

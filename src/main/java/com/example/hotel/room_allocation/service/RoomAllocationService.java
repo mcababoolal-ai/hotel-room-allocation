@@ -29,8 +29,8 @@ public class RoomAllocationService {
                         .sorted(Comparator.reverseOrder())
                         .toList();
 
-        int remainingPremiumRooms = request.availablePremiumRooms();
-        int remainingEconomyRooms = request.availableEconomyRooms();
+        int remainingPremiumRooms = (request.availablePremiumRooms() == null) ? 0 : request.availablePremiumRooms();
+        int remainingEconomyRooms = (request.availableEconomyRooms() == null) ? 0 : request.availableEconomyRooms();
 
         List<BigDecimal> allocatedPremiumPayments = new ArrayList<>();
         List<BigDecimal> allocatedEconomyPayments = new ArrayList<>();
