@@ -38,9 +38,9 @@ class RoomAllocationServiceTest {
                         new RoomAllocationRequest(7, 5, GUEST_OFFERS)
                 );
 
-        assertEquals(6, result.occupiedPremiumRooms());
-        assertEquals(new BigDecimal("1054"), result.totalPremiumRevenue());
-        assertEquals(4, result.occupiedEconomyRooms());
-        assertEquals(new BigDecimal("189.99"), result.totalEconomyRevenue());
+        assertEquals(6, result.usagePremium());
+        assertEquals(new BigDecimal("1054"), result.revenuePremium());
+        assertEquals(4, result.usageEconomy());
+        assertEquals(new BigDecimal("189.99"), result.revenueEconomy());
     }
 }
